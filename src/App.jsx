@@ -5,7 +5,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import MultiTextInput from "./components/Form/CustomComponents/MultiTextInput";
 
-// Schema for validati form validation
+// Schema for form validation
 const formSchema = z.object({
   name: z.string().nonempty("Name is required"),
   email: z.string().email().nonempty("Email is required"),
