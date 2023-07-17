@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 47.4% 11.2%;
+
+    --popover-dark: 224 71% 4%;
+    --popover-dark-foreground: 215 20.2% 65.1%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 47.4% 11.2%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+
+    /* tailwind color name: bg-sky-500 */
+    --primary: 199, 89%, 49%;
+    --primary-foreground: 210 40% 98%;
+
+    /* tailwind color name: bg-sky-600 */
+    --hover: 201, 96%, 33%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 215 20.2% 65.1%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 215, 29%, 17%;
+    --foreground: 213 31% 91%;
+
+    /* tailwind color name: bg-slate-600 */
+    --muted: 213, 20%, 35%;
+    --muted-foreground: 215.4 16.3% 56.9%;
+
+    /* tailwind color name: bg-slate-900 */
+    --popover: 224, 45%, 11%;
+    --popover-foreground: 215 20.2% 65.1%;
+
+    /* tailwind color name: bg-slate-800 */
+    --card: 217, 33%, 18%;
+    --card-foreground: 213 31% 91%;
+
+    /* tailwind color name: bg-slate-500 */
+    --border: 214, 16%, 47%;
+    /* tailwind color name: bg-slate-200 */
+    --input: 213, 27%, 84%;
+
+    /* tailwind color name: bg-sky-500 */
+    --primary: 228, 9%, 89%;
+    --primary-foreground: 214, 28%, 18%;
+
+    /* tailwind color name: bg-sky-600 */
+    --hover: 235, 6%, 64%;
+
+    --secondary: 222.2 47.4% 11.2%;
+    --secondary-foreground: 210 40% 98%;
+
+    --accent: 235, 6%, 64%;
+    --accent-foreground: 214, 28%, 18%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 216 34% 17%;
+
+    --radius: 0.5rem;
+  }
+  .page-container {
+    @apply p-5;
+  }
+  .selected-div{
+    @apply bg-primary text-primary-foreground hover:bg-hover
+  }
+  h1{
+    @apply scroll-m-20 text-4xl font-extrabold tracking-tight;
+  }
+  h2{
+    @apply scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0;
+  }
+  h3{
+    @apply scroll-m-20 text-2xl font-semibold tracking-tight;
+  }
+  p{
+    @apply scroll-m-20 text-xl font-semibold tracking-tight;
+  }
+  blockquote{
+    @apply mt-6 border-l-2 pl-6 italic;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  }
+}
