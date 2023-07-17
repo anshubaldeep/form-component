@@ -3,6 +3,7 @@ import Form from "./components/Form";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import MultiTextInput from "./components/Form/CustomComponents/MultiTextInput";
 
 // Schema for validati form validation
 const formSchema = z.object({
@@ -11,6 +12,9 @@ const formSchema = z.object({
   gender: z.string().nonempty("Please select a value"),
   terms: z.boolean().refine((val) => val === true, {
     message: "You must agree to the terms and conditions",
+  }),
+  multiText: z.array(z.string()).refine((val) => val.length > 0, {
+    message: "You must enter at least one value",
   }),
   radio: z.string().refine((val) => val !== "", {
     message: "You must select a radio option",
@@ -47,6 +51,12 @@ const formConfig = [
     type: "checkbox",
   },
   {
+    name: "multiText",
+    label: "Multi Text Custom Component",
+    type: "custom",
+    component: "MultiText",
+  },
+  {
     name: "radio",
     label: "Radio Option",
     type: "radio",
@@ -76,6 +86,7 @@ function App() {
       gender: "",
       terms: false,
       checkbox: false,
+      multiText: [""],
       radio: "",
     },
   });
@@ -88,7 +99,7 @@ function App() {
   return (
     <>
       <HeaderNavbar />
-      <div className="flex justify-center items-center h-screen">
+      <div className="flex justify-center items-center">
         {/* Form Component - 
                 formConfig: Array of objects that contain the form fields
                 rhfProps: React Hook Form props
@@ -99,8 +110,14 @@ function App() {
           formConfig={formConfig}
           rhfProps={rhfProps}
           handleSubmit={handleSubmit}
-          wrapperClass="gap-4 p-24 w-3/4"
-        />
+          wrapperClass="gap-8 p-24 w-3/4"
+        >
+          {/* Custom Component -
+                pass the custom component as a child of the Form component
+                the component will be rendered in the form
+            */}
+          <MultiTextInput maxRows={3} />
+        </Form>
       </div>
     </>
   );
